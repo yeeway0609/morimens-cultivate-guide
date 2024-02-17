@@ -1,0 +1,32 @@
+[
+  {
+    "id": "",
+    "name": "",
+    "type": "",
+    "career": "",
+    "intro": "",
+    "characterImageURL": "",
+    "recommendEvolution": "",
+    "recommendEvolutionDesc": "",
+    "skillImageURL": [],
+    "RageBurst": "",
+    "recommendDestinyWheels": [
+      {
+        "id": "",
+        "desc": ""
+      }
+    ],
+    "recommendCovenants": [
+      {
+        "id": "",
+        "desc": ""
+      }
+    ],
+    "recommendTeams": [
+      {
+        "id": [],
+        "desc": ""
+      }
+    ]
+  }
+]
