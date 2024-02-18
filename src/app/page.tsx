@@ -2,13 +2,13 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="">
-      <Image
-        src="/hero-mobile.png"
-        width={560}
-        height={620}
-        alt="Screenshot of the dashboard project showing mobile version"
-      />
+    <main>
+      <div
+        className="relative w-full h-screen bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero-mobile.png')" }}
+      >
+        <Image className="pt-20" src="/logo.svg" width={494} height={240} alt="Logo" />
+      </div>
     </main>
   );
 }
