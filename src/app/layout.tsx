@@ -1,9 +1,12 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Noto_Serif_TC } from "next/font/google";
 import NavBar from '@/components/NavBar';
 
-const inter = Inter({ subsets: ["latin"] });
+const notoSerifTC = Noto_Serif_TC({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "忘卻前夜養成指南",
@@ -17,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={notoSerifTC.className}>
         <NavBar />
         {children}
       </body>
