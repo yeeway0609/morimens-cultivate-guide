@@ -5,7 +5,7 @@ export default function Home() {
     <main>
       <div
         className="relative w-full h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero-mobile.png')" }}
+        style={{ backgroundImage: "url('/mobile-home-hero.png')" }}
       >
         <Image className="pt-20" src="/logo.svg" width={494} height={240} alt="Logo" />
       </div>
