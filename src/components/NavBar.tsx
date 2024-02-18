@@ -5,12 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const links = [
-  { name: "喚醒體", href: "/awaker", icon: "/icon_awaker.svg" },
-  { name: "命輪", href: "/destinyWheel", icon: "/icon_destinyWheel.svg" },
-  { name: "密契", href: "/covenant", icon: "/icon_covenant.svg" },
-];
-
 export default function NavBar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,30 +13,54 @@ export default function NavBar() {
 
   return (
     <nav>
-      <div className={`fixed ${navBarHeight} z-10 flex w-full bg-[#1D1D1D]`}>
-        <div className="text-white" onClick={() => setIsOpen(!isOpen)}>
-          ☰
+      <div className={`fixed ${navBarHeight} z-10 flex w-full items-center bg-[#1D1D1D]`}>
+        <div onClick={() => setIsOpen(!isOpen)} className="px-3 text-white opacity-60 md:hidden">
+          {isOpen ? (
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </div>
-        <Image src="/logo.svg" width={120} height={60} alt="Logo" />
+        <div className="h-4 w-[0.5px] bg-white opacity-60 md:hidden"></div>
+        <Link href="/">
+          <Image className="-ml-2" src="/logo.svg" width={100} height={48} alt="Logo" />
+        </Link>
       </div>
-      <div
-        className={`${isOpen ? "flex" : "hidden"} fixed flex-col ${sideBarTop} left-0 h-full w-64 bg-[#1D1D1D]`}
-      >
-        {links.map((link) => {
-          return (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`
-                h-12 border-b-[0.5px] border-white text-sm font-medium text-white hover:text-[#A95400]
-                ${pathname === link.href ? "text-blue-600" : ""}
-              `}
-            >
-              <Image src={link.icon} width={30} height={30} alt="Link's icon" />
-              <p>{link.name}</p>
-            </Link>
-          );
-        })}
+      <div className={`${isOpen ? "" : "-translate-x-full"} ${sideBarTop} fixed left-0 h-full w-60 flex flex-col bg-[#1D1D1D] px-4 transition`}>
+        <Link
+          href="/awaker"
+          className={`
+            ${pathname === "/awaker" ? "text-Golden" : "text-white"}
+            h-14 border-b-[0.5px] border-[#888888] py-4 text-base
+          `}
+        >
+          <img className="absolute h-8" src="/icon_awaker.svg" alt="Link's icon" />
+          <p className="absolute ml-6">喚醒體</p>
+        </Link>
+        <Link
+          href="/destinyWheel"
+          className={`
+            ${pathname === "/destinyWheel" ? "text-Golden" : "text-white"}
+            h-14 border-b-[0.5px] border-[#888888] py-4 text-base
+          `}
+        >
+          <img className="absolute ml-4 h-6" src="/icon_destinyWheel.svg" alt="Link's icon" />
+          <p className="ml-6">命輪</p>
+        </Link>
+        <Link
+          href="/covenant"
+          className={`
+            ${pathname === "/covenant" ? "text-Golden" : "text-white"}
+            h-14 border-b-[0.5px] border-[#888888] py-4 text-base
+          `}
+        >
+          <img className="absolute ml-4 h-6" src="/icon_covenant.svg" alt="Link's icon" />
+          <p className="ml-6">密契</p>
+        </Link>
       </div>
     </nav>
   );
