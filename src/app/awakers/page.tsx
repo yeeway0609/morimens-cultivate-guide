@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import awakerData from "@/data/AwakerData.json";
+import awakerData from "@/data/awakers.json";
 import AwakerFilter from "@/components/AwakerFilter";
 
 export default function Awakers() {
