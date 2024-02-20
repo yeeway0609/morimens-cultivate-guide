@@ -16,7 +16,7 @@ CREATE TABLE awakers (
   recommend_destiny_wheels_desc TEXT[], -- 推薦命輪描述
   recommend_covenants_id INT[], -- 推薦密契
   recommend_covenants_desc TEXT[], -- 推薦密契描述
-  recommend_teams JSONB -- 推薦隊伍
+  recommend_teams JSONB -- 推薦隊伍 [{ "awaker_id": [], "awaker_position": [], "team_desc": "" }, ...]
 );
 
 -- 命輪
