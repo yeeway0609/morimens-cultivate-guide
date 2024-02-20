@@ -7,9 +7,9 @@ CREATE TABLE awakers (
   name TEXT NOT NULL,
   career TEXT NOT NULL, -- 界域
   type TEXT NOT NULL, -- 類型
-  position TEXT NOT NULL, -- 定位
-  intro TEXT NOT NULL, -- 角色簡介
-  rage_burst TEXT NOT NULL, -- 狂氣爆發
+  position TEXT, -- 定位
+  intro TEXT, -- 角色簡介
+  rage_burst TEXT, -- 狂氣爆發
   recommend_evolution INT, -- 關鍵啟靈
   recommend_evolution_desc TEXT, -- 關鍵啟靈描述
   recommend_destiny_wheels_id INT[], -- 推薦命輪
