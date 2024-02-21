@@ -1,11 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import awakerData from "@/data/awakers.json";
+import { fetchAwakers } from '@/lib/fetchData';
 import AwakerFilter from "@/components/AwakerFilter";
 
-export default function Awakers() {
+export default async function Awakers({ searchParams }: { searchParams?: {query?: string; careerFilter?: string;};}) {
+  const query = searchParams?.query || '';
+  const careerFilter = searchParams?.careerFilter || '';
+  console.log(careerFilter);
+  const awakers = await fetchAwakers(query, careerFilter);
+
   return (
-    <main className="bg-WhiteBoard">
+    <main className="min-h-screen bg-WhiteBoard">
       <div className="h-12"></div>
       <div
         className="relative h-[100px] w-full bg-cover bg-center"
@@ -18,15 +23,22 @@ export default function Awakers() {
         </div>
       </div>
       <AwakerFilter />
-      <section className="flex-4 flex flex-wrap gap-3 px-2 py-4">
-        {awakerData.map((awaker) => (
-          <Link
-            key={awaker.name}
-            href={`/awakers/${awaker.id}`}
-          >
-            <Image src={`/img/awaker_cards/${awaker.id}.png`} alt={awaker.name} width={80} height={180} />
-          </Link>
-        ))}
+      <section className="">
+        <div className="grid grid-cols-4 gap-4 px-5 py-4 place-items-center">
+          {awakers.map((awaker) => (
+            <Link
+              key={awaker.name}
+              href={`/awakers/${awaker.id}`}
+              className="w-[80px] h-[180px]"
+            >
+              <Image
+                src={`/img/awaker_cards/${awaker.id}.png`}
+                alt={awaker.name}
+                width={80}
+                height={180} />
+            </Link>
+          ))}
+        </div>
       </section>
     </main>
   );
