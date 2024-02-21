@@ -1,4 +1,4 @@
-[
+const destiny_wheels = [
   {
     "id": "1",
     "name": "溯洄時針",
@@ -469,3 +469,5 @@
     "recommend_awakers_id": []
   }
 ]
+
+module.exports = destiny_wheels;
