@@ -18,6 +18,9 @@ const config: Config = {
         'Golden': '#D9B570',
         'WhiteBoard': '#E7E7E7',
       },
+      screens: {
+        'xs': '400px',
+      },
     },
   },
   plugins: [],

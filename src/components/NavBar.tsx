@@ -19,13 +19,19 @@ export default function NavBar() {
           className="px-3 text-white opacity-60 md:hidden"
         >
           {isOpen ? (
-            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <Image
+              src="/icon-menu-close.svg"
+              alt="My SVG"
+              width={24}
+              height={24}
+            />
           ) : (
-            <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <Image
+              src="/icon-menu.svg"
+              alt="My SVG"
+              width={24}
+              height={24}
+            />
           )}
         </div>
         <div className="h-4 w-[0.5px] bg-white opacity-60 md:hidden"></div>
@@ -51,8 +57,7 @@ export default function NavBar() {
         <Link
           href="/destinyWheels"
           className={`
-            ${pathname === "/destinyWheels" ? "text-Golden" : "text-white"}
-            h-14 border-b-[0.5px] border-[#888888] py-4 text-base
+            ${pathname === "/destinyWheels" ? "text-Golden" : "text-white"} h-14 border-b-[0.5px] border-[#888888] py-4 text-base
           `}
           onClick={() => setIsOpen(!isOpen)}
         >
