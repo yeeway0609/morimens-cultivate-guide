@@ -21,14 +21,14 @@ export default function NavBar() {
           {isOpen ? (
             <Image
               src="/icon-menu-close.svg"
-              alt="My SVG"
+              alt="close menu icon"
               width={24}
               height={24}
             />
           ) : (
             <Image
               src="/icon-menu.svg"
-              alt="My SVG"
+              alt="open menu icon"
               width={24}
               height={24}
             />
@@ -46,7 +46,7 @@ export default function NavBar() {
         <Link
           href="/awakers"
           className={`
-            ${pathname === "/awakers" ? "text-Golden" : "text-white"}
+            ${pathname.startsWith("/awakers") ? "text-Golden" : "text-white"}
             h-14 border-b-[0.5px] border-[#888888] py-4 text-base
           `}
           onClick={() => setIsOpen(!isOpen)}
@@ -57,7 +57,7 @@ export default function NavBar() {
         <Link
           href="/destinyWheels"
           className={`
-            ${pathname === "/destinyWheels" ? "text-Golden" : "text-white"} h-14 border-b-[0.5px] border-[#888888] py-4 text-base
+            ${pathname.startsWith("/destinyWheels") ? "text-Golden" : "text-white"} h-14 border-b-[0.5px] border-[#888888] py-4 text-base
           `}
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -67,7 +67,7 @@ export default function NavBar() {
         <Link
           href="/covenants"
           className={`
-            ${pathname === "/covenants" ? "text-Golden" : "text-white"}
+            ${pathname.startsWith("/covenants") ? "text-Golden" : "text-white"}
             h-14 border-b-[0.5px] border-[#888888] py-4 text-base
           `}
           onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +78,7 @@ export default function NavBar() {
       </div>
 
       {/* translucent mask */}
-      {isOpen ? <div className="fixed inset-0 bg-black bg-opacity-50 z-10"></div> : <></>}
+      {isOpen ? <div className="fixed inset-0 bg-black bg-opacity-50 z-10" onClick={() => setIsOpen(false)}></div> : <></>}
     </nav>
   );
 }
