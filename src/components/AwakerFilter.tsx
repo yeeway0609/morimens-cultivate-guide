@@ -28,22 +28,19 @@ export default function AwakerFilter() {
   }, 300);
 
   return (
-    <section className="bg-DarkGray w-full items-center px-4 py-3 text-xs font-medium text-white">
-      <div className="relative w-full h-5 mb-2 border-[0.5px] rounded-full bg-transparent flex justify-between">
+    <section className="bg-DarkGray w-full items-center px-4 py-3 text-sm font-medium text-white">
+      <div className="relative w-full h-8 mb-2 border-[0.5px] rounded-full bg-transparent flex justify-between">
         <label htmlFor="search" className="sr-only">
           Search
         </label>
         <input
-          className="w-4/5 ml-3 bg-transparent text-[8px] outline-none"
+          className="w-4/5 ml-4 bg-transparent outline-none"
           placeholder="輸入喚醒體名稱..."
           onChange={(e) => handleSearch(e.target.value)}
           defaultValue={searchParams.get('query')?.toString()}
         />
         <div className="h-full aspect-square rounded-r-full bg-Golden flex justify-center items-center">
-          <svg className="h-2 w-2" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" >
-            <path d="M7.66667 14.3333C11.3486 14.3333 14.3333 11.3486 14.3333 7.66667C14.3333 3.98477 11.3486 1 7.66667 1C3.98477 1 1 3.98477 1 7.66667C1 11.3486 3.98477 14.3333 7.66667 14.3333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M16.0005 15.9998L12.3755 12.3748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <svg className="h-3 w-3" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" ><path d="M7.66667 14.3333C11.3486 14.3333 14.3333 11.3486 14.3333 7.66667C14.3333 3.98477 11.3486 1 7.66667 1C3.98477 1 1 3.98477 1 7.66667C1 11.3486 3.98477 14.3333 7.66667 14.3333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /><path d="M16.0005 15.9998L12.3755 12.3748" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
         </div>
       </div>
       <div className="flex justify-around">
