@@ -1,1 +1,1 @@
-Todo: 優化圖片
+Todo: 優化圖片、Loding page
