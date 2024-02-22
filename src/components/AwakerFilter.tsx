@@ -68,7 +68,7 @@ export default function AwakerFilter() {
           Search
         </label>
         <input
-          className="ml-2 bg-transparent text-[8px] outline-none"
+          className="w-20 ml-2 bg-transparent text-[8px] outline-none"
           placeholder="輸入喚醒體名稱..."
           onChange={(e) => handleSearch(e.target.value)}
           defaultValue={searchParams.get('query')?.toString()}
