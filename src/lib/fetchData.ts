@@ -24,7 +24,7 @@ interface AwakerTeam {
   team_desc: string;
 }
 
-export async function fetchAwakers(query: string, careerFilter: string) {
+export async function fetchFilteredAwakers(query: string, careerFilter: string) {
   try {
     const data = await sql<Awaker>`
       SELECT
@@ -38,6 +38,39 @@ export async function fetchAwakers(query: string, careerFilter: string) {
     `;
 
     const awakers = data.rows;
+    return awakers;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch all awakers.');
+  }
+
+  noStore();
+}
+
+export async function fetchAwaker(id: number) {
+  try {
+    const data = await sql<Awaker>`
+      SELECT
+        id,
+        name,
+        career,
+        type,
+        position,
+        intro,
+        recommend_evolution,
+        recommend_evolution_desc,
+        rage_burst,
+        recommend_destiny_wheels_id,
+        recommend_destiny_wheels_desc,
+        recommend_covenants_id,
+        recommend_covenants_desc,
+        recommend_teams
+      FROM awakers
+      WHERE
+        id = ${id}
+    `;
+
+    const awakers = data.rows[0];
     return awakers;
   } catch (err) {
     console.error('Database Error:', err);
