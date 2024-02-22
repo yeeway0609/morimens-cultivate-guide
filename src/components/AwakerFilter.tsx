@@ -57,28 +57,28 @@ export default function AwakerFilter() {
           onClick={() => handleCareerFilter("混沌")}
           className={`${careerFilter == "混沌" ? "text-Golden" : "text-white"} relative`}
         >
-          <img className="absolute -ml-2" src="/icon-career-混沌.svg" alt="career icon" />
+          <img className="absolute -ml-2" src="/icon-混沌-white.svg" alt="career icon" />
           <span>混沌</span>
         </div>
         <div
           onClick={() => handleCareerFilter("深海")}
           className={`${careerFilter == "深海" ? "text-Golden" : "text-white"} relative`}
         >
-          <img className="absolute -ml-2" src="/icon-career-深海.svg" alt="career icon" />
+          <img className="absolute -ml-2" src="/icon-深海-white.svg" alt="career icon" />
           <span>深海</span>
         </div>
         <div
           onClick={() => handleCareerFilter("血肉")}
           className={`${careerFilter == "血肉" ? "text-Golden" : "text-white"} relative`}
         >
-          <img className="absolute -ml-2 -mt-[2px]" src="/icon-career-血肉.svg" alt="career icon" />
+          <img className="absolute -ml-2 -mt-[2px]" src="/icon-血肉-white.svg" alt="career icon" />
           <span>血肉</span>
         </div>
         <div
           onClick={() => handleCareerFilter("超維")}
           className={`${careerFilter == "超維" ? "text-Golden" : "text-white"} relative`}
         >
-          <img className="absolute -ml-2" src="/icon-career-超維.svg" alt="career icon" />
+          <img className="absolute -ml-2" src="/icon-超維-white.svg" alt="career icon" />
           <span>超維</span>
         </div>
       </div>
