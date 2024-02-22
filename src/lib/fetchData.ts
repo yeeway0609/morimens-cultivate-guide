@@ -35,6 +35,7 @@ export async function fetchFilteredAwakers(query: string, careerFilter: string) 
       WHERE
         name ILIKE ${`%${query}%`} AND
         career ILIKE ${`%${careerFilter}%`}
+      ORDER BY id
     `;
 
     const awakers = data.rows;
@@ -43,8 +44,6 @@ export async function fetchFilteredAwakers(query: string, careerFilter: string) 
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all awakers.');
   }
-
-  noStore();
 }
 
 export async function fetchAwaker(id: number) {
@@ -76,6 +75,4 @@ export async function fetchAwaker(id: number) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all awakers.');
   }
-
-  noStore();
 }
