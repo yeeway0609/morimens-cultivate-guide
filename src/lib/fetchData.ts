@@ -24,6 +24,15 @@ interface AwakerTeam {
   team_desc: string;
 }
 
+interface DestinyWheel {
+  id: number;
+  name: string;
+  effect: string;
+  description: string;
+  recommend_awakers_id: number[];
+}
+
+// Example: fetchAllAwakers('朵', '混沌') will return the awakers whose name contains "朵" and career contains "混沌".
 export async function fetchFilteredAwakers(query: string, careerFilter: string) {
   try {
     const data = await sql<Awaker>`
@@ -44,8 +53,11 @@ export async function fetchFilteredAwakers(query: string, careerFilter: string) 
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all awakers.');
   }
+
+  noStore();
 }
 
+// Example: fetchAwakersByCareer(1) will return all data about tha awaker "拉蒙娜"
 export async function fetchAwaker(id: number) {
   try {
     const data = await sql<Awaker>`
@@ -73,6 +85,28 @@ export async function fetchAwaker(id: number) {
     return awakers;
   } catch (err) {
     console.error('Database Error:', err);
-    throw new Error('Failed to fetch all awakers.');
+    throw new Error('Failed to fetch the awakers.');
   }
+
+  noStore();
+}
+
+// Example: fetchDestinyWheelsById([1, 2, 3]) will return ["溯洄時針", "騎士之心", "星天之獸"].
+export async function fetchDestinyWheelsById(id_array: number[]) {
+  try {
+    const data = await sql<DestinyWheel>`
+      SELECT name
+      FROM destiny_wheels
+      WHERE id IN (${id_array.join(',')})
+      ORDER BY FIELD(id, ${id_array.join(',')})
+    `;
+
+    const destiny_wheels = data.rows;
+    return destiny_wheels;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch the destiny wheels.');
+  }
+
+  noStore();
 }

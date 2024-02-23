@@ -48,7 +48,7 @@ export default function AwakerFilter() {
           onClick={() => handleCareerFilter("")}
           className={`${careerFilter == "" ? "text-Golden" : "text-white"}`}
         >
-          全選
+          全界域
         </div>
         <div
           onClick={() => handleCareerFilter("混沌")}
