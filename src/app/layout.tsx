@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={notoSerifTC.className}>
         <NavBar />
+        <div className="h-16"></div>
         {children}
       </body>
     </html>

@@ -39,7 +39,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
       ) : (
         <>
           <header>
-            <div className="relative h-44">
+            <div className="relative h-28">
               <Image
                 src={`/img/career_banner/bg_horizontal_${awaker.career}.jpg`}
                 alt={awaker.career}

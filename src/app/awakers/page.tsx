@@ -10,7 +10,6 @@ export default async function Awakers({ searchParams }: { searchParams?: {query?
 
   return (
     <main className="min-h-screen bg-WhiteBoard">
-      <div className="h-12"></div> {/* This is a navbar spacer */}
       <header
         className="relative h-[100px] w-full bg-cover bg-center"
         style={{ backgroundImage: "url('/mobile-banner-1.png')" }}
