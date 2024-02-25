@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         'DarkGray': '#1D1D1D',
         'Golden': '#D9B570',
+        'Brown': '#CC6908',
         'WhiteBoard': '#E7E7E7',
       },
       screens: {
