@@ -1,15 +1,17 @@
 "use client";
 
-import Link from "next/link";
-
 export default function SectionNavBar() {
   const sections = ["簡介", "關鍵啟靈", "角色技能組", "建議命輪", "建議密契", "建議隊伍"];
 
   const handleScroll = (id: string) => {
-    window.scrollTo({
-      top: document.getElementById(id).offsetTop - 70,
-      behavior: 'smooth',
-    });
+    const element = document.getElementById(id);
+
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 70,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
