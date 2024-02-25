@@ -32,6 +32,14 @@ interface DestinyWheel {
   recommend_awakers_id: number[];
 }
 
+interface Covenant {
+  id: number;
+  name: string;
+  effect: string;
+  description: string;
+  recommend_awakers_id: number[];
+}
+
 // Example: fetchAllAwakers('朵', '混沌') will return the awakers whose name contains "朵" and career contains "混沌".
 export async function fetchFilteredAwakers(query: string, careerFilter: string) {
   try {
@@ -91,18 +99,38 @@ export async function fetchAwaker(id: number) {
   noStore();
 }
 
-// Example: fetchDestinyWheelsById([1, 2, 3]) will return ["溯洄時針", "騎士之心", "星天之獸"].
-export async function fetchDestinyWheelsById(id_array: number[]) {
+// Example: fetchDestinyWheelsNameById([1, 2, 3]) will return ["溯洄時針", "騎士之心", "星天之獸"].
+export async function fetchDestinyWheelsNameById(id_array: number[]) {
   try {
     const data = await sql<DestinyWheel>`
       SELECT name
       FROM destiny_wheels
-      WHERE id IN (${id_array.join(',')})
-      ORDER BY FIELD(id, ${id_array.join(',')})
+      WHERE id = ANY (${id_array})
+      ORDER BY array_position(${id_array}, id)
     `;
 
-    const destiny_wheels = data.rows;
+    const destiny_wheels = data.rows.map((row) => row.name);
     return destiny_wheels;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch the destiny wheels.');
+  }
+
+  noStore();
+}
+
+// Example: fetchCovenantsNameById([1, 2, 3]) will return ["機械降神", "扭曲雙子 · 白", "扭曲雙子 · 黑"].
+export async function fetchCovenantsNameById(id_array: number[]) {
+  try {
+    const data = await sql<Covenant>`
+      SELECT name
+      FROM covenants
+      WHERE id = ANY (${id_array})
+      ORDER BY array_position(${id_array}, id)
+    `;
+
+    const covenants = data.rows.map((row) => row.name);
+    return covenants;
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch the destiny wheels.');

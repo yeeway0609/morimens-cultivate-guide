@@ -20,7 +20,7 @@ async function seedAwakers(client) {
         recommend_destiny_wheels_desc text[],
         recommend_covenants_id smallint[],
         recommend_covenants_desc text[],
-        recommend_teams jsonb
+        recommend_teams jsonb[]
       );
     `;
 
