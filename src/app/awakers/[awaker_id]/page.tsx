@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fetchAwaker, fetchDestinyWheelsNameById, fetchCovenantsNameById } from '@/lib/fetchData';
-import parse from 'html-react-parser';
 import SectionNavBar from "@/components/SectionNavBar";
 import BaseBoard from "@/components/BaseBoard";
 
@@ -82,8 +81,8 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
             <div className="absolute bottom-0 w-full h-1/3 z-20 bg-gradient-to-b from-transparent to-WhiteBoard"></div>
           </div>
           <section id="簡介" className="mb-5 relative">
-            <p className="w-2/3 absolute z-20">{parse(`${awaker.intro}`)}</p>
-            <p className="w-2/3 opacity-0">{parse(`${awaker.intro}`)}</p>
+            <p className="w-2/3 absolute z-20" dangerouslySetInnerHTML={{ __html: awaker.intro}}></p>
+            <p className="w-2/3 opacity-0" dangerouslySetInnerHTML={{ __html: awaker.intro}}></p>
           </section>
           <section id="關鍵啟靈" className="mb-5">
             <div className="flex items-end">
@@ -100,7 +99,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                 ))}
               </div>
             </div>
-            <p>{parse(`${awaker.recommend_evolution_desc}`)}</p>
+            <p dangerouslySetInnerHTML={{ __html: awaker.recommend_evolution_desc}}></p>
           </section>
           <section id="角色技能組" className="mb-5">
             <TitleBar title="角色技能組" />
@@ -116,7 +115,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
             >
               <span className="ml-2">狂氣爆發</span>
             </h3>
-            <p>{parse(`${awaker.rage_burst}`)}</p>
+            <p dangerouslySetInnerHTML={{ __html: awaker.rage_burst}}></p>
           </section>
           <section id="建議命輪" className="mb-5">
             <TitleBar title="建議命輪" />
@@ -128,7 +127,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                 />
                 <div>
                   <h3 className="text-sm font-semibold">{recommendDestinyWheelsName[index]}</h3>
-                  <p>{parse(`${awaker.recommend_destiny_wheels_desc[index]}`)}</p>
+                  <p dangerouslySetInnerHTML={{ __html: awaker.recommend_destiny_wheels_desc[index]}}></p>
                 </div>
               </div>
             ))}
@@ -143,7 +142,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                 />
                 <div>
                   <h3 className="text-sm font-semibold">{recommendCovenantsName[index]}</h3>
-                  <p>{parse(`${awaker.recommend_covenants_desc[index]}`)}</p>
+                  <p dangerouslySetInnerHTML={{ __html: awaker.recommend_covenants_desc[index]}}></p>
                 </div>
               </div>
             ))}
@@ -162,7 +161,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                     </div>
                   ))}
                 </div>
-                <p className="mt-2 pb-4">{parse(`${team.team_desc}`)}</p>
+                <p className="mt-2 pb-4" dangerouslySetInnerHTML={{ __html: team.team_desc}}></p>
               </div>
             ))}
           </section>
