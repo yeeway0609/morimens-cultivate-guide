@@ -8,7 +8,7 @@ export default function SectionNavBar() {
 
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 70,
+        top: element.offsetTop + 105,
         behavior: 'smooth',
       });
     }
