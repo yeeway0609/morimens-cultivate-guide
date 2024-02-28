@@ -1,1 +1,1 @@
-Todo: 優化圖片、Loding page
+Todo: 缺的內容、優化圖片、SEO
