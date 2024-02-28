@@ -44,7 +44,7 @@ export default function NavBar() {
       </div>
       <div
         className={`${isOpen ? "" : "-translate-x-full"} ${sideBarTop}
-        fixed left-0 h-full w-60 flex flex-col bg-[#1D1D1D] px-4 transition z-20 text-xl`}
+        fixed left-0 h-full w-60 flex flex-col bg-[#1D1D1D] px-4 transition z-40 text-xl`}
       >
         <Link
           href="/awakers"
@@ -83,7 +83,7 @@ export default function NavBar() {
 
       {/* translucent mask */}
       {isOpen ? (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-10" onClick={() => setIsOpen(false)}></div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-30" onClick={() => setIsOpen(false)}></div>
       ) : (
         <></>
       )}
