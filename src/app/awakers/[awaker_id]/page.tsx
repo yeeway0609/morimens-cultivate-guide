@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fetchAwaker, fetchDestinyWheelsNameById, fetchCovenantsNameById } from '@/lib/fetchData';
 import SectionNavBar from "@/components/SectionNavBar";
 import BaseBoard from "@/components/BaseBoard";
+import sanitizeHtml from 'sanitize-html';
 
 function TitleBar({ title }: { title: string }) {
   return <h1 className="w-[90px] mb-2 text-sm text-center font-medium text-white leading-normal bg-contain bg-center bg-no-repeat shadow-lg" style={{ backgroundImage: `url('/bg-title-bar.svg')` }}>{title}</h1>;
@@ -21,6 +22,8 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
 
   const recommendDestinyWheelsName = await fetchDestinyWheelsNameById(awaker.recommend_destiny_wheels_id);
   const recommendCovenantsName = await fetchCovenantsNameById(awaker.recommend_covenants_id);
+
+  const awakerIntroHtml = sanitizeHtml(awaker.intro);
 
   return (
     <>
@@ -81,8 +84,8 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
             <div className="absolute bottom-0 w-full h-1/3 z-20 bg-gradient-to-b from-transparent to-WhiteBoard"></div>
           </div>
           <section id="簡介" className="mb-5 relative">
-            <p className="w-2/3 absolute z-20" dangerouslySetInnerHTML={{ __html: awaker.intro}}></p>
-            <p className="w-2/3 opacity-0" dangerouslySetInnerHTML={{ __html: awaker.intro}}></p>
+            <p className="w-2/3 absolute z-20" dangerouslySetInnerHTML={{ __html: awakerIntroHtml}}></p>
+            <p className="w-2/3 opacity-0" dangerouslySetInnerHTML={{ __html: awakerIntroHtml}}></p>
           </section>
           <section id="關鍵啟靈" className="mb-5">
             <div className="flex items-end">
