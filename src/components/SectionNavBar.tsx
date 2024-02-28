@@ -15,15 +15,18 @@ export default function SectionNavBar() {
   };
 
   return (
-    <nav className="fixed bottom-0 w-full h-10 bg-DarkGray opacity-90 flex justify-around items-center z-10">
+    <nav className="fixed bottom-0 w-full h-10 bg-DarkGray opacity-90 flex justify-center items-center z-10">
       {sections.map((section, index) => (
+        <>
         <div
           key={index}
-          className="text-[10px] text-white"
+          className="text-[10px] text-white flex items-center"
           onClick={() => handleScroll(section)}
         >
           {section}
         </div>
+        {index < sections.length - 1 && <div className="mx-1 w-4 border-dashed border-white border-b-[0.5px]"></div>}
+        </>
       ))}
     </nav>
   );
