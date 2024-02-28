@@ -100,13 +100,14 @@ export async function fetchAwaker(id: number) {
 }
 
 // Example: fetchDestinyWheelsNameById([1, 2, 3]) will return ["溯洄時針", "騎士之心", "星天之獸"].
-export async function fetchDestinyWheelsNameById(id_array: number[]) {
+export async function fetchDestinyWheelsNameById(id_array: any) {
+      // ORDER BY array_position(${id_array}, id)
+
   try {
     const data = await sql<DestinyWheel>`
       SELECT name
       FROM destiny_wheels
       WHERE id = ANY (${id_array})
-      ORDER BY array_position(${id_array}, id)
     `;
 
     const destiny_wheels = data.rows.map((row) => row.name);
@@ -120,7 +121,7 @@ export async function fetchDestinyWheelsNameById(id_array: number[]) {
 }
 
 // Example: fetchCovenantsNameById([1, 2, 3]) will return ["機械降神", "扭曲雙子 · 白", "扭曲雙子 · 黑"].
-export async function fetchCovenantsNameById(id_array: number[]) {
+export async function fetchCovenantsNameById(id_array: any) {
   try {
     const data = await sql<Covenant>`
       SELECT name
