@@ -42,6 +42,8 @@ interface Covenant {
 
 // Example: fetchAllAwakers('朵', '混沌') will return the awakers whose name contains "朵" and career contains "混沌".
 export async function fetchFilteredAwakers(query: string, careerFilter: string) {
+  noStore();
+
   try {
     const data = await sql<Awaker>`
       SELECT
@@ -61,12 +63,11 @@ export async function fetchFilteredAwakers(query: string, careerFilter: string) 
     console.error('Database Error:', err);
     throw new Error('Failed to fetch all awakers.');
   }
-
-  noStore();
 }
 
 // Example: fetchAwakersByCareer(1) will return all data about tha awaker "拉蒙娜"
 export async function fetchAwaker(id: number) {
+  noStore();
   try {
     const data = await sql<Awaker>`
       SELECT
@@ -89,25 +90,26 @@ export async function fetchAwaker(id: number) {
         id = ${id}
     `;
 
+    console.log(data.rows[0].intro);
+    console.log(data.rows[0].recommend_teams);
     const awakers = data.rows[0];
     return awakers;
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch the awakers.');
   }
-
-  noStore();
 }
 
 // Example: fetchDestinyWheelsNameById([1, 2, 3]) will return ["溯洄時針", "騎士之心", "星天之獸"].
 export async function fetchDestinyWheelsNameById(id_array: any) {
-      // ORDER BY array_position(${id_array}, id)
+  noStore();
 
   try {
     const data = await sql<DestinyWheel>`
       SELECT name
       FROM destiny_wheels
       WHERE id = ANY (${id_array})
+      ORDER BY array_position(${id_array}, id)
     `;
 
     const destiny_wheels = data.rows.map((row) => row.name);
@@ -116,12 +118,12 @@ export async function fetchDestinyWheelsNameById(id_array: any) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch the destiny wheels.');
   }
-
-  noStore();
 }
 
 // Example: fetchCovenantsNameById([1, 2, 3]) will return ["機械降神", "扭曲雙子 · 白", "扭曲雙子 · 黑"].
 export async function fetchCovenantsNameById(id_array: any) {
+  noStore();
+
   try {
     const data = await sql<Covenant>`
       SELECT name
@@ -136,6 +138,4 @@ export async function fetchCovenantsNameById(id_array: any) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch the destiny wheels.');
   }
-
-  noStore();
 }
