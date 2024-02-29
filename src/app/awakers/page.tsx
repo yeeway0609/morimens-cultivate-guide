@@ -14,7 +14,7 @@ export default async function Awakers({ searchParams }: { searchParams?: {query?
       <div className="w-full h-16"></div> {/* top padding same as navbar height */}
       <header
         className="relative w-full h-[100px] bg-cover bg-center"
-        style={{ backgroundImage: "url('/mobile-banner-1.png')" }}
+        style={{ backgroundImage: "url('/mobile-banner.png')" }}
       >
         <div className="absolute w-full h-1/2 bottom-0 bg-gradient-to-t from-black to-transparent"></div>
         <img className="absolute w-24 bottom-0 right-1" src="/icon_awaker.svg" alt="Awakers' icon" />
