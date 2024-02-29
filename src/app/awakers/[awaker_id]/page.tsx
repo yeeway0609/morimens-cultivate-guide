@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fetchAwaker, fetchDestinyWheelsNameById, fetchCovenantsNameById } from '@/lib/fetchData';
 import SectionNavBar from "@/components/SectionNavBar";
 import BaseBoard from "@/components/BaseBoard";
+import WorkInProgress from "@/components/WorkInProgress";
 
 function TitleBar({ title }: { title: string }) {
   return <h1 className="w-[90px] mb-2 text-sm text-center font-medium text-white leading-normal bg-contain bg-center bg-no-repeat shadow-lg" style={{ backgroundImage: `url('/bg-title-bar.svg')` }}>{title}</h1>;
@@ -25,14 +26,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
   return (
     <>
     {awaker.intro === "" ? (
-      <div className="h-screen flex flex-col">
-        <div className="h-16"></div> {/* top padding same as navbar height */}
-        <BaseBoard>
-          <div className="h-full w-full flex justify-center items-center">
-            <h1 className="text-2xl">🚧 資料建置中...... 🚧</h1>
-          </div>
-        </BaseBoard>
-      </div>
+      <WorkInProgress />
     ) : (
       <div className="relative">
         <style>

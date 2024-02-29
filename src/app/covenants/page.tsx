@@ -1,13 +1,10 @@
 import Image from "next/image";
+import WorkInProgress from "@/components/WorkInProgress";
 
 export default function Covenants() {
   return (
     <main>
-      <h1>dasfs</h1>
-      <h1>dasfs</h1>
-      <h1>dasfs</h1>
-      <h1>dasfs</h1>
-      <h1>dasfs</h1>
+      <WorkInProgress />
     </main>
   );
 }
