@@ -10,7 +10,7 @@ export default async function Awakers({ searchParams }: { searchParams?: {query?
   const awakers = await fetchFilteredAwakers(query, careerFilter);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-[100svh] flex flex-col">
       <div className="h-16"></div> {/* top padding same as navbar height */}
       <header
         className="relative h-[100px] w-full bg-cover bg-center"
