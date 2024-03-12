@@ -121,7 +121,7 @@ async function main() {
   const client = await db.connect();
 
   // Only run this once to seed the database
-  // await seedAwakers(client);
+  await seedAwakers(client);
   // await seedDestinyWheels(client);
   // await seedCovenants(client);
 

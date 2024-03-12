@@ -1,1 +1,1 @@
-Todo: 缺的內容、優化圖片、SEO、Mobile PWA
+Todo: 缺的內容、優化圖片、SEO、Mobile PWA、首頁設計、RWD
