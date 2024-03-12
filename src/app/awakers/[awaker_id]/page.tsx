@@ -100,7 +100,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
           <section id="角色技能組" className="mb-5">
             <TitleBar title="角色技能組" />
             <Image
-              src={`/img/skill_set/${awaker.id}.png`}
+              src={`/img/skill_set/${awaker.id}.jpeg`}
               alt="技能圖"
               width={350}
               height={100}
@@ -118,7 +118,10 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
             {awaker.recommend_destiny_wheels_id.map((id, index) => (
               <div key={index} className="mb-4 flex">
                 <Image
-                  src={`/img/destiny_wheel_cards/${id}.png`} alt="命輪圖" width={40} height={40}
+                  src={`/img/destiny_wheel_cards/${id}.png`}
+                  alt="命輪圖"
+                  width={40}
+                  height={40}
                   className="w-10 h-10 mr-3"
                 />
                 <div>
@@ -133,7 +136,10 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
             {awaker.recommend_covenants_id.map((id, index) => (
               <div key={index} className="mb-4 flex">
                 <Image
-                  src={`/img/covenant_cards/${id}.png`} alt="密契圖" width={40} height={40}
+                  src={`/img/covenant_cards/${id}.png`}
+                  alt="密契圖"
+                  width={40}
+                  height={40}
                   className="w-10 h-10 mr-3"
                 />
                 <div>
@@ -151,7 +157,12 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                   {team.awaker_id.map((id, index) => (
                     <div key={index}>
                       <Link key={id} href={`/awakers/${id}`} className="w-[80px] h-[180px]">
-                        <Image src={`/img/awaker_cards/${id}.png`} alt="Awaker card" width={80} height={180} />
+                        <Image
+                          src={`/img/awaker_cards/${id}.png`}
+                          alt="Awaker card"
+                          width={80}
+                          height={180}
+                        />
                       </Link>
                       <p className="mt-1 py-1 text-center text-white bg-[#3A3522]">{team.awaker_position[index]}</p>
                     </div>
