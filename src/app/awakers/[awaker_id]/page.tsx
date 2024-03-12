@@ -41,12 +41,13 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
           `}
         </style>
         <NavBarPadding />
-        <div className="absolute right-0 z-10">
+        <div className="absolute right-0 z-10 w-[180px] h-[360px]">
           <Image
             src={`/img/awaker_photo/${awaker.id}.png`}
             alt="角色立繪"
             width={180}
             height={360}
+            className="absolute right-0 bottom-0"
           />
         </div>
         <header>
@@ -71,11 +72,11 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
           </div>
         </header>
         <BaseBoard>
-          <div className="absolute right-0 w-[180px] h-[212.5px] z-20">
+          <div className="absolute right-0 w-[180px] h-[212px] z-20">
             <div className="absolute -left-1 bottom-0 w-1/3 h-full z-20 bg-gradient-to-l from-transparent to-WhiteBoard"></div>
             <div className="absolute bottom-0 w-full h-1/3 z-20 bg-gradient-to-b from-transparent to-WhiteBoard"></div>
           </div>
-          <section id="簡介" className="mb-5 relative">
+          <section id="簡介" className="mb-5 relative min-h-[200px]">
             <p className="w-2/3 absolute z-20" dangerouslySetInnerHTML={{ __html: awaker.intro}}></p>
             <p className="w-2/3 opacity-0" dangerouslySetInnerHTML={{ __html: awaker.intro}}></p>
           </section>
