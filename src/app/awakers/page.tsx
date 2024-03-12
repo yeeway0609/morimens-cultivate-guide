@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { fetchFilteredAwakers } from '@/lib/fetchData';
 import AwakerFilter from "@/components/AwakerFilter";
+import NavBarPadding from "@/components/NavBarPadding";
 import BaseBoard from "@/components/BaseBoard";
 
 export default async function Awakers({ searchParams }: { searchParams?: {query?: string; careerFilter?: string;};}) {
@@ -11,7 +12,7 @@ export default async function Awakers({ searchParams }: { searchParams?: {query?
 
   return (
     <div className="h-[100svh] flex flex-col">
-      <div className="w-full h-16 flex-shrink-0"></div> {/* top padding same as navbar height */}
+      <NavBarPadding />
       <header
         className="relative w-full h-[100px] flex-shrink-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/mobile-banner.png')" }}

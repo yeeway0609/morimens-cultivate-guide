@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { fetchAwaker, fetchDestinyWheelsNameById, fetchCovenantsNameById } from '@/lib/fetchData';
 import SectionNavBar from "@/components/SectionNavBar";
+import NavBarPadding from "@/components/NavBarPadding";
 import BaseBoard from "@/components/BaseBoard";
 import WorkInProgress from "@/components/WorkInProgress";
 
@@ -39,7 +40,7 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
             }
           `}
         </style>
-        <div className="h-16"></div> {/* top padding same as navbar height */}
+        <NavBarPadding />
         <div className="absolute right-0 z-10">
           <Image
             src={`/img/awaker_photo/${awaker.id}.png`}
