@@ -10,10 +10,10 @@ export default async function Awakers({ searchParams }: { searchParams?: {query?
   const awakers = await fetchFilteredAwakers(query, careerFilter);
 
   return (
-    <div className="h-screen flex flex-col">
-      <div className="w-full h-16"></div> {/* top padding same as navbar height */}
+    <div className="h-[100svh] flex flex-col">
+      <div className="w-full h-16 flex-shrink-0"></div> {/* top padding same as navbar height */}
       <header
-        className="relative w-full h-[100px] bg-cover bg-center"
+        className="relative w-full h-[100px] flex-shrink-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/mobile-banner.png')" }}
       >
         <div className="absolute w-full h-1/2 bottom-0 bg-gradient-to-t from-black to-transparent"></div>
