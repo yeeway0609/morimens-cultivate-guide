@@ -90,8 +90,6 @@ export async function fetchAwaker(id: number) {
         id = ${id}
     `;
 
-    console.log(data.rows[0].intro);
-    console.log(data.rows[0].recommend_teams);
     const awakers = data.rows[0];
     return awakers;
   } catch (err) {
