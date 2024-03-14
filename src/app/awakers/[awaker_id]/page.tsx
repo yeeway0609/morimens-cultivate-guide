@@ -115,8 +115,8 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
           </section>
           <section id="建議命輪" className="mb-5">
             <TitleBar title="建議命輪" />
-            {awaker.recommend_destiny_wheels_id.map((id, index) => (
-              <div key={index} className="mb-4 flex">
+            {awaker.recommend_destiny_wheels_id.map((id, array_id) => (
+              <div key={array_id} className="mb-4 flex">
                 <Image
                   src={`/img/destiny_wheel_cards/${id}.png`}
                   alt="命輪圖"
@@ -125,16 +125,16 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                   className="w-10 h-10 mr-3"
                 />
                 <div>
-                  <h3 className="text-sm font-semibold">{recommendDestinyWheelsName[index]}</h3>
-                  <p dangerouslySetInnerHTML={{ __html: awaker.recommend_destiny_wheels_desc[index]}}></p>
+                  <h3 className="text-sm font-semibold">{recommendDestinyWheelsName[array_id]}</h3>
+                  <p dangerouslySetInnerHTML={{ __html: awaker.recommend_destiny_wheels_desc[array_id]}}></p>
                 </div>
               </div>
             ))}
           </section>
           <section id="建議密契" className="mb-5">
             <TitleBar title="建議密契" />
-            {awaker.recommend_covenants_id.map((id, index) => (
-              <div key={index} className="mb-4 flex">
+            {awaker.recommend_covenants_id.map((id, array_id) => (
+              <div key={array_id} className="mb-4 flex">
                 <Image
                   src={`/img/covenant_cards/${id}.png`}
                   alt="密契圖"
@@ -143,8 +143,8 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
                   className="w-10 h-10 mr-3"
                 />
                 <div>
-                  <h3 className="text-sm font-semibold">{recommendCovenantsName[index]}</h3>
-                  <p dangerouslySetInnerHTML={{ __html: awaker.recommend_covenants_desc[index]}}></p>
+                  <h3 className="text-sm font-semibold">{recommendCovenantsName[array_id]}</h3>
+                  <p dangerouslySetInnerHTML={{ __html: awaker.recommend_covenants_desc[array_id]}}></p>
                 </div>
               </div>
             ))}
@@ -155,17 +155,29 @@ export default async function Awaker({ params }: { params: { awaker_id: number }
               <div key={index}>
                 <div className="grid grid-cols-4 gap-4 place-items-center">
                   {team.awaker_id.map((id, index) => (
-                    <div key={index}>
-                      <Link key={id} href={`/awakers/${id}`} className="w-[80px] h-[180px]">
+                    id === 999 ? (
+                      <div key={index}>
                         <Image
                           src={`/img/awaker_cards/${id}.png`}
                           alt="Awaker card"
                           width={80}
                           height={180}
                         />
-                      </Link>
-                      <p className="mt-1 py-1 text-center text-white bg-[#3A3522]">{team.awaker_position[index]}</p>
-                    </div>
+                        <p className="mt-1 py-1 text-center text-white bg-[#3A3522]">{team.awaker_position[index]}</p>
+                      </div>
+                    ) : (
+                      <div key={index}>
+                        <Link key={id} href={`/awakers/${id}`} className="w-[80px] h-[180px]">
+                          <Image
+                            src={`/img/awaker_cards/${id}.png`}
+                            alt="Awaker card"
+                            width={80}
+                            height={180}
+                          />
+                        </Link>
+                        <p className="mt-1 py-1 text-center text-white bg-[#3A3522]">{team.awaker_position[index]}</p>
+                      </div>
+                    )
                   ))}
                 </div>
                 <p className="mt-2 pb-4" dangerouslySetInnerHTML={{ __html: team.team_desc}}></p>

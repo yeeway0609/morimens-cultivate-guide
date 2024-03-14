@@ -36,18 +36,3 @@ CREATE TABLE covenants (
   description text,
   recommend_awakers_id smallint[] -- 推薦喚醒體
 );
-
--- 更新喚醒體的推薦隊伍
-UPDATE awakers
-SET recommend_teams = ARRAY[
-  JSONB('{ "awaker_id": [1, 14, 15, 28], "awaker_position": ["輔助", "護盾", "生存", "主C"], "team_desc": "很穩定常見的深海配置。<br><br><span class=\"text-brown\">拉蒙娜</span>覺醒後可以過牌、充能鑰令，開場可以快速拉出需要的覺醒卡，戰鬥中缺防禦或觸手就找<span class=\"text-red\">美的憐憫</span>，缺輸出就找<span class=\"text-red\">深淵號令</span>。<br><br>除了缺乏爆發傷害，這隊平推關卡非常好用，但越級超過10等會比較吃力。" }'),
-  JSONB('{ "awaker_id": [1, 29, 27, 999], "awaker_position": ["輔助", "主C", "輔助", "任意"], "team_desc": "<span class=\"text-brown\">拉蒙娜</span>在這隊玩法跟上面是一樣的，唯一主力是<span class=\"text-brown\">達芙黛爾</span>的<span class=\"text-red\">斷頸一擊</span>、配合<span class=\"text-brown\">卡茜亞</span>的<span class=\"text-red\">隔空取物</span>可以把<span class=\"text-red\">斷頸一擊</span>從超維空間拉出來再打一發，只要牌順好、傷害夠，現版本越級最強組合。<br><br>值得一提的是這隊不太吃覺醒，一般只需考慮覺醒<span class=\"text-brown\">拉蒙娜</span>跟<span class=\"text-brown\">達芙黛爾</span>。" }')
-]
-WHERE id = 1
-
-UPDATE awakers
-SET recommend_teams = ARRAY[
-  JSONB('{ "awaker_id": [30, 20, 16, 31], "awaker_position": ["輸出", "生存", "副C", "輔助"], "team_desc": "主C<span class=\"text-brown\">索蕾爾</span>，利用<span class=\"text-brown\">環行拉蒙娜</span>的狂氣覺醒複製上回合的牌，可以不斷讓<span class=\"text-brown\">索蕾爾</span>生胚胎（<span class=\"text-red\">打擊</span>＋<span class=\"text-red\">珠玉之卵</span>50%胚胎進度），還能微量回血，<span class=\"text-brown\">環行拉蒙娜</span>的<span class=\"text-red\">回環打擊</span>效果也很契合力量隊的輸出模式，可以幫忙打點傷害。推薦拿些算力類造物，<span class=\"text-brown\">環行拉蒙娜</span>很吃算力。但是這隊防禦能力很弱，在進入精英或王關前，建議準備好<span class=\"text-brown\">艾繼絲</span>的<span class=\"text-red\">狂氣爆發</span>，減少道中戰損。" }'),
-  JSONB('{ "awaker_id": [30, 20, 21, 19], "awaker_position": ["副C", "生存", "生存", "輸出"], "team_desc": "<span class=\"text-brown\">尤烏哈希</span>做主C的配隊，<span class=\"text-brown\">索蕾爾</span>當副C，帶上<span class=\"text-brown\">切割與傷害</span>與<span class=\"text-brown\">扭曲雙子 · 黑</span>密契，全遊最高攻的切割效果會很嚇人。多段傷害的場合用<span class=\"text-brown\">切割與傷害</span>降攻，單發高傷的場合靠死抗，如果是三啟<span class=\"text-brown\">索蕾爾</span>，這隊胚胎一個接一個來。小怪或菁英主要讓<span class=\"text-brown\">索蕾爾</span>狂氣爆發打傷害，到王關盡快讓<span class=\"text-brown\">尤烏哈希</span>吞噬5個以上的胚胎，你會感受到他驚人的長線火力。（當然別忘了給<span class=\"text-brown\">雷婭</span>疊力量）" }')
-]
-WHERE id = 30

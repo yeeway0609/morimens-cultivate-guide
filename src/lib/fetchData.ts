@@ -46,10 +46,7 @@ export async function fetchFilteredAwakers(query: string, careerFilter: string) 
 
   try {
     const data = await sql<Awaker>`
-      SELECT
-        id,
-        name,
-        career
+      SELECT id, name, career
       FROM awakers
       WHERE
         name ILIKE ${`%${query}%`} AND
@@ -68,23 +65,10 @@ export async function fetchFilteredAwakers(query: string, careerFilter: string) 
 // Example: fetchAwakersByCareer(1) will return all data about tha awaker "拉蒙娜"
 export async function fetchAwaker(id: number) {
   noStore();
+
   try {
     const data = await sql<Awaker>`
-      SELECT
-        id,
-        name,
-        career,
-        type,
-        position,
-        intro,
-        recommend_evolution,
-        recommend_evolution_desc,
-        rage_burst,
-        recommend_destiny_wheels_id,
-        recommend_destiny_wheels_desc,
-        recommend_covenants_id,
-        recommend_covenants_desc,
-        recommend_teams
+      SELECT id, name, career, type, position, intro, recommend_evolution, recommend_evolution_desc, rage_burst, recommend_destiny_wheels_id, recommend_destiny_wheels_desc, recommend_covenants_id, recommend_covenants_desc, recommend_teams
       FROM awakers
       WHERE
         id = ${id}
@@ -95,6 +79,42 @@ export async function fetchAwaker(id: number) {
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch the awakers.');
+  }
+}
+
+export async function fetchAwakersNameById(id_array: any) {
+  noStore();
+
+  try {
+    const data = await sql<Awaker>`
+      SELECT name
+      FROM awakers
+      WHERE id = ANY (${id_array})
+      ORDER BY array_position(${id_array}, id)
+    `;
+
+    const awakers = data.rows.map((row) => row.name);
+    return awakers;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch the awakers.');
+  }
+}
+
+export async function fetchDestinyWheels() {
+  noStore();
+
+  try {
+    const data = await sql<DestinyWheel>`
+      SELECT id, name, recommend_awakers_id
+      FROM destiny_wheels
+    `;
+
+    const destiny_wheels = data.rows;
+    return destiny_wheels;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch the destiny wheels.');
   }
 }
 
@@ -112,6 +132,23 @@ export async function fetchDestinyWheelsNameById(id_array: any) {
 
     const destiny_wheels = data.rows.map((row) => row.name);
     return destiny_wheels;
+  } catch (err) {
+    console.error('Database Error:', err);
+    throw new Error('Failed to fetch the destiny wheels.');
+  }
+}
+
+export async function fetchCovenants() {
+  noStore();
+
+  try {
+    const data = await sql<Covenant>`
+      SELECT id, name, recommend_awakers_id
+      FROM covenants
+    `;
+
+    const covenants = data.rows;
+    return covenants;
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch the destiny wheels.');

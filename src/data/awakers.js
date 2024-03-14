@@ -100,7 +100,7 @@ const awakers = [
     'rage_burst': '驅散自身易傷狀態。回復10點生命,其他喚醒體獲得5點狂氣。',
     'recommend_destiny_wheels_id': [4, 44, 41, 15, 9],
     'recommend_destiny_wheels_desc': [
-      '<span class="text-brown">作為充能輔助使用</span><br><br><span class="text-brown">朵爾</span>的專武，契合<span class="text-brown">朵爾</span>的<span class="text-red">狂氣爆發</span>能夠幫隊友快速回充狂氣。',
+      '<span class="text-brown">作為充能輔助使用</span><br><span class="text-brown">朵爾</span>的專武，契合<span class="text-brown">朵爾</span>的<span class="text-red">狂氣爆發</span>能夠幫隊友快速回充狂氣。',
       '<span class="text-brown">作為充能輔助使用</span><br>打出症狀卡後充能全隊狂氣，因<span class="text-brown">朵爾</span>本身能夠回血，可將扣血類症狀卡傷害壓低。',
       '<span class="text-brown">作為充能輔助使用</span><br>釋放<span class="text-red">狂氣爆發</span>後，隊友獲得狂氣，配合<span class="text-brown">朵爾</span>的<span class="text-red">狂氣爆發</span>能夠幫隊友快速回充狂氣。',
       '<span class="text-brown">作為生存使用</span><br>提高生命回復以及護盾百分比，契合<span class="text-brown">朵爾</span>的覺醒。',
@@ -123,9 +123,9 @@ const awakers = [
     'career': '混沌',
     'type': '防禦型',
     'position': '生存|反擊輔助',
-    'intro': '官方定位為<span class="text-brown">防禦型</span>，作為當前版本防禦屬性最高的喚醒體，<span class="text-brown">諾締拉</span>同樣擁有不俗的體質，搭配上<span class="text-brown">覺醒</span>後無條件獲得的盾量加成以及<span class="text-red">短期記憶</span>的狂氣回復，都讓<span class="text-brown">諾締拉</span>成為一個萬金油的選擇，不論是哪個界域的<span class="text-brown">生存位</span>都能佔有一席之地。<br><br>此外，<span class="text-brown">諾締拉</span>的<span class="text-red">狂氣爆發「整裝待發」</span>，更是可以直接提高當前所有的護盾數值。在已經擁有大量護盾的前提下釋放，更是能夠扛住高難<span class="text-brown">深潛關卡</span>首領破千的單次爆發傷害，是保命位置的不二人選。需要注意的是，<span class="text-brown">諾締拉</span><span class="text-red">狂氣爆發<span class="text-red">提高盾量並不是獲取護盾，無法搭配<span class="text-brown">先賢斷章</span>等需要獲取護盾才能觸發的造物。',
+    'intro': '官方定位為<span class="text-brown">防禦型</span>，作為當前版本防禦屬性最高的喚醒體，<span class="text-brown">諾締拉</span>同樣擁有不俗的體質，搭配上<span class="text-brown">覺醒</span>後無條件獲得的盾量加成以及<span class="text-red">短期記憶</span>的狂氣回復，都讓<span class="text-brown">諾締拉</span>成為一個萬金油的選擇，不論是哪個界域的<span class="text-brown">生存位</span>都能佔有一席之地。<br><br>此外，<span class="text-brown">諾締拉</span>的<span class="text-red">狂氣爆發「整裝待發」</span>，更是可以直接提高當前所有的護盾數值。在已經擁有大量護盾的前提下釋放，更是能夠扛住高難<span class="text-brown">深潛關卡</span>首領破千的單次爆發傷害，是保命位置的不二人選。需要注意的是，<span class="text-brown">諾締拉</span><span class="text-red">狂氣爆發</span>提高盾量並不是獲取護盾，無法搭配<span class="text-brown">先賢斷章</span>等需要獲取護盾才能觸發的造物。',
     'recommend_evolution': 1,
-    'recommend_evolution_desc': '一啟降低短期記憶費用，使用上會更順滑。<br><br>二啟收益較低，不做推薦。<br><br><br>三啟在釋放狂氣爆發後可以免疫虛弱、脆弱、易傷，屬於對策用。',
+    'recommend_evolution_desc': '一啟降低短期記憶費用，使用上會更順滑。<br><br>二啟收益較低，不做推薦。<br><br>三啟在釋放狂氣爆發後可以免疫虛弱、脆弱、易傷，屬於對策用。',
     'rage_burst': '獲得6點護盾和6點反擊。使當前的護盾提高50%',
     'recommend_destiny_wheels_id': [22, 13, 36, 37, 35, 67],
     'recommend_destiny_wheels_desc': [
